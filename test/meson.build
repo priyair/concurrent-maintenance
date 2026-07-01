@@ -2,7 +2,12 @@ gtest_dep = dependency('gtest', main: true, required: get_option('tests'))
 
 test_manager = executable(
     'test-manager',
-    ['test_manager.cpp', '../src/manager.cpp'],
+    [
+        'test_manager.cpp',
+        '../src/manager.cpp',
+        '../src/cm_object.cpp',
+        '../src/cm_object_manager.cpp',
+    ],
     include_directories: inc,
     dependencies: [gtest_dep, sdbusplus_dep, phosphor_logging_dep],
 )

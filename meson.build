@@ -14,7 +14,12 @@ inc = include_directories('include')
 
 executable(
     'ibm-concurrent-maintenance',
-    ['src/main.cpp', 'src/manager.cpp'],
+    [
+        'src/main.cpp',
+        'src/manager.cpp',
+        'src/cm_object.cpp',
+        'src/cm_object_manager.cpp',
+    ],
     include_directories: inc,
     dependencies: [sdbusplus_dep, phosphor_logging_dep],
     install: true,
