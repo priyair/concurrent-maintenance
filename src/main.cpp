@@ -8,13 +8,13 @@ int main()
 {
     sdbusplus::async::context ctx;
 
-    // Create ObjectManager for concurrent maintenance dbus objects
-    constexpr auto objManagerPath = "/com/ibm/ConcurrentMaintenance";
-    sdbusplus::server::manager_t dbusObjManager(ctx, objManagerPath);
-
-    concurrent_maintenance::Manager cmManager(ctx);
+    // Create ObjectManager for concurrent maintenance
+    constexpr auto objManagerPath = "/com/ibm/concurrent_maintenance";
+    sdbusplus::server::manager_t objManager(ctx, objManagerPath);
 
     ctx.request_name("com.ibm.ConcurrentMaintenance");
+
+    concurrent_maintenance::Manager manager(ctx);
 
     lg2::info("Concurrent Maintenance service started");
 
